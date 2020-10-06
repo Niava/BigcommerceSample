@@ -56,6 +56,10 @@
         transform: translateY(-50%);
         margin: 0;
         border-radius: 50px;
+
+        &:focus {
+            outline: 0 !important;
+        }
     }
 
     .slick-next {
@@ -106,6 +110,56 @@
                 }
             }
         }
+    }
+
+    .homepage-banner-offer {
+        background-image: url("https://cdn11.bigcommerce.com/s-z6cvd38ohl/product_images/uploaded_images/bg-offer-alt.png");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .homepage-banner-heated {
+        background-image: url("https://cdn11.bigcommerce.com/s-z6cvd38ohl/product_images/uploaded_images/bg-heated-min.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.heroCarousel-slide {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 680px;
+
+    .left {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+        width: 50%;
+        max-width: 710px;
+        position: relative;
+
+        .heroCarousel-content {
+            max-width: calc(600px + 130px);
+            padding: 0;
+        }
+    }
+
+    .right {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+        width: 50%;
+        max-width: 710px;
+        position: relative;
     }
 }
 
@@ -216,11 +270,14 @@
     color: $carousel-title-color;
     font-size: fontSize("small");
     margin-top: 0;
-    font-weight: 900;
+    font-weight: 700;
     color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0;
 
     @include breakpoint("medium") {
-        font-size: 3.4375rem;
+        font-size: 3.2rem;
     }
 }
 
@@ -244,8 +301,11 @@
     border-color: #00aeef;
     text-transform: uppercase;
     font-weight: 500;
+    border-radius: 0;
 
     @include breakpoint("medium") {
-        margin-top: spacing("single");
+        margin-top: 0;
+        min-width: 340px;
+        padding: 21px 10px 20px;
     }
 }

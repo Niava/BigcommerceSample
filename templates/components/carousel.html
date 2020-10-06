@@ -17,36 +17,40 @@
     <button aria-label="{{lang 'carousel.arrowAriaLabel'}} {{carousel.slides.length}}" class="js-hero-prev-arrow slick-prev slick-arrow">hero-prev-arrow</button>
     {{/and}}
     {{#each carousel.slides}}
-    <a href="{{url}}" class="js-hero-slide" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'common.carousel_slide_number' slide_number=(add @index 1)}}{{/if}}">
+    <a href="{{url}}" class="js-hero-slide homepage-banner-{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{/if}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'common.carousel_slide_number' slide_number=(add @index 1)}}{{/if}}">
         <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
-            <div class="heroCarousel-image-wrapper">
-            {{#if @first}}
-                {{> components/common/responsive-img
-                    image=stencil_image
-                    class="heroCarousel-image"
-                    fallback_size='1280w'
-                    lazyload='disabled'
-                }}
-            {{else}}
-                {{> components/common/responsive-img
-                    image=stencil_image
-                    class="heroCarousel-image"
-                    fallback_size='1280w'
-                    lazyload='lazyload'
-                }}
-            {{/if}}
-            </div>
-            {{#if heading}}
-                {{> components/carousel-content show_background=true}}
-            {{else}}
+            <div class="left">
+                {{#if heading}}
+                    {{> components/carousel-content show_background=true}}
+                {{else}}
                 {{#if text}}
                     {{> components/carousel-content show_background=true}}
                 {{else}}
-                    {{#if button_text}}
-                        {{> components/carousel-content show_background=false}}
-                    {{/if}}
+                {{#if button_text}}
+                    {{> components/carousel-content show_background=false}}
                 {{/if}}
-            {{/if}}
+                {{/if}}
+                {{/if}}
+            </div>
+            <div class="right">
+                <div class="banner-img">
+                {{#if @first}}
+                {{> components/common/responsive-img
+                                image=stencil_image
+                                class="heroCarousel-image"
+                                fallback_size='1280w'
+                                lazyload='disabled'
+                            }}
+                {{else}}
+                {{> components/common/responsive-img
+                                image=stencil_image
+                                class="heroCarousel-image"
+                                fallback_size='1280w'
+                                lazyload='lazyload'
+                            }}
+                {{/if}}
+                </div>
+            </div>
         </div>
     </a>
     {{/each}}
