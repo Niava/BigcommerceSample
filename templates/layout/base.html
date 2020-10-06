@@ -40,7 +40,7 @@
         {{~inject 'channelId' settings.channel_id}}
         {{~inject 'template' template}}
     </head>
-    <body>
+    <body  class="layout-{{dashcase (sanitize template) }}">
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{> components/common/header }}

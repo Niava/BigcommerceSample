@@ -11,6 +11,11 @@
     position: relative;
     width: layout("fixed");
 
+    max-width: 1420px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+
     @include breakpoint("large") {
         padding: 0 ($container-padding * 4);
     }

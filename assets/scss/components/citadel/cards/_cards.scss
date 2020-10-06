@@ -22,7 +22,28 @@
         .card-figcaption {
             opacity: 1;
         }
-    }    
+    }  
+    
+    .seller-flag {
+        position: absolute;
+        display: inline-block;
+        z-index: 1;
+        background-color: #f4530c;
+        padding: 6px 20px 6px 14px;
+        line-height: 16px;
+        max-height: 28px;
+        -webkit-clip-path: polygon(0 0,51% -250%,100% 100%,0 100%);
+        clip-path: polygon(0 0,51% -250%,100% 100%,0 100%);
+        white-space: nowrap;
+
+        .seller-text {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 16px;
+        }
+    }
 }
 
 .card-figure {
@@ -41,6 +62,18 @@
     max-width: get-width(stencilString('productgallery_size'));
 
     @include lazy-loaded-padding('productgallery_size');
+
+    &:after {
+        display: none;
+    }
+
+    img {
+        margin: 0;
+        position: relative;
+        transform: scale(1);
+        transition: all .3s ease-in-out;
+
+    }
 }
 
 .card-figcaption {
@@ -122,6 +155,27 @@
 
     @include breakpoint("small") {
         text-align: left;
+    }
+
+    & > p.card-text,
+    .card-title {
+        display: none;
+    }
+
+    .price-section {
+        text-align: center;
+
+        &.non-sale-price--withTax,
+        .price-now-label {
+            display: none;
+        }
+
+        .price--withTax {
+            color: #13246b;
+            font-weight: 600;
+            margin-left: 10px;
+            font-size: 1.375rem;
+        }
     }
 }
 

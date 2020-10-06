@@ -13,6 +13,7 @@ import cartPreview from './global/cart-preview';
 import privacyCookieNotification from './global/cookieNotification';
 import adminBar from './global/adminBar';
 import carousel from './common/carousel';
+import scrollHeader from './common/scrollHeader';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 import objectFitImages from './global/object-fit-polyfill';
@@ -28,6 +29,7 @@ export default class Global extends PageManager {
         foundation($(document));
         quickView(this.context);
         carousel();
+        scrollHeader();
         menu();
         mobileMenuToggle();
         privacyCookieNotification();

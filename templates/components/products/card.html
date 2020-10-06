@@ -16,6 +16,13 @@
                 </div>
             {{/if}}
         {{/or}}
+
+        {{#each custom_fields}}
+            <div class="{{name}}">
+                <span class="seller-text">{{{value}}}</span>
+            </div>
+        {{/each}}
+
         <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
             <div class="card-img-container">
                 {{> components/common/responsive-img

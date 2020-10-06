@@ -4,7 +4,7 @@
     </div>
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
         {{#each categories}}
-            <li class="navPages-item">
+            <li class="navPages-item {{#if children}}has-children{{/if}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
                 {{> components/common/navigation-list}}
             {{/if}}
@@ -28,7 +28,7 @@
     </ul>
     <ul class="navPages-list navPages-list--user">
         {{#if currency_selector.currencies.length '>' 1}}
-            <li class="navPages-item">
+            <li class="navPages-item navPages-item-has-subMenu">
                 <a class="navPages-action has-subMenu"
                    href="#"
                    data-collapsible="navPages-currency"
@@ -93,7 +93,7 @@
             </li>
         {{/if}}
         {{#if customer}}
-            <li class="navPages-item">
+            <li class="navPages-item navPages-item-has-subMenu">
                 <a class="navPages-action has-subMenu"
                    href="{{urls.account.index}}"
                    data-collapsible="navPages-account"

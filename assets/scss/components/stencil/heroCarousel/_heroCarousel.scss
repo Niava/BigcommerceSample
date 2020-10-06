@@ -55,10 +55,15 @@
         top: 50%;
         transform: translateY(-50%);
         margin: 0;
+        border-radius: 50px;
     }
 
     .slick-next {
         right: 15px;
+
+        &::before {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+        }
 
         @include breakpoint("medium") {
             right: 25px;
@@ -67,6 +72,9 @@
 
     .slick-prev {
         left: 15px;
+        &::before {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+        }
 
         @include breakpoint("medium") {
             left: 25px;
@@ -82,7 +90,21 @@
 
         // scss-lint:disable SelectorDepth, NestingDepth
         li {
-            @include carouselOpaqueBackgrounds($slick-dot-bgColor);
+            background-color: transparent;
+
+            button {
+                height: 2px;
+                width: 27px;
+                border-color:#fff;
+                opacity: 0.3;
+                border-radius: 0;
+            }
+
+            &.slick-active {
+                button {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
@@ -94,7 +116,7 @@
     }
 
     .heroCarousel-image {
-        object-fit: contain;
+        object-fit: cover;
         width: 100%;
         height: 100%;
         object-position: 50% 0%;
@@ -168,14 +190,14 @@
 .heroCarousel-content {
     background-color: rgba($carousel-bgColor, 1);
     padding: spacing("half") spacing("single") (spacing("double"));
-    text-align: center;
+    text-align: left;
 
     @include breakpoint("small") {
         @include carouselOpaqueBackgrounds;
         width: remCalc(700px);
         padding: spacing("single") * 1.5;
         width: 70%;
-        background-color: rgba($carousel-bgColor, 0.9);
+        background-color: rgba($carousel-bgColor, 0);
         left: 0;
         padding: spacing("single");
         margin: 0 auto;
@@ -194,14 +216,16 @@
     color: $carousel-title-color;
     font-size: fontSize("small");
     margin-top: 0;
+    font-weight: 900;
+    color: #fff;
 
     @include breakpoint("medium") {
-        font-size: fontSize("hero");
+        font-size: 3.4375rem;
     }
 }
 
 .heroCarousel-description {
-    color: $carousel-description-color;
+    color: #fff;
     font-size: fontSize("tiny");
 
     @include breakpoint("small") {
@@ -209,12 +233,17 @@
     }
 
     @include breakpoint("medium") {
-        font-size: fontSize("smaller");
+        font-size: fontSize("large");
     }
 }
 
 .heroCarousel-action {
     margin: 0;
+    background-color: #00aeef;
+    color: #fff;
+    border-color: #00aeef;
+    text-transform: uppercase;
+    font-weight: 500;
 
     @include breakpoint("medium") {
         margin-top: spacing("single");

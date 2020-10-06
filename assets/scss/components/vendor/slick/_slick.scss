@@ -26,6 +26,27 @@
     padding: remCalc(10px);
     width: remCalc(40px);
 
+    &.js-hero-next-arrow,
+    &.js-hero-prev-arrow {
+        width: 45px;
+        height: 45px;
+        border-radius: 45px;
+        border: 2px solid rgba(255,255,255,.3);
+        background: 0 0;
+        color: #fff;
+        transition: all .3s ease-in-out;
+
+        &::before {
+            width: 7px;
+            height: 12px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            color: #fff;
+        }
+    }
+
     &::before {
         background-position: 50%;
         background-repeat: no-repeat;
@@ -37,7 +58,9 @@
 
     &:hover,
     &:focus {
-        @include carouselOpaqueBackgrounds($slick-arrow-bgColor); // 1
+        //@include carouselOpaqueBackgrounds($slick-arrow-bgColor); // 1
+        background-color: rgba(255,255,255,.2);
+        border-color: rgba(255,255,255,.8);
         background-position: 50%;
         background-repeat: no-repeat;
         background-size: 100%;
@@ -114,7 +137,7 @@
 
         button {
             // scss-lint:disable NestingDepth
-            border: 1px solid $slick-dot-color;
+            border: 1px solid #fff;
             display: inline-block;
             margin: 0;
             padding: 0;
@@ -124,7 +147,7 @@
 
             &:hover {
                 &::before {
-                    background: $slick-dot-color;
+                    background: #fff;
                 }
             }
         }
@@ -138,8 +161,11 @@
 
         &.slick-active {
             // scss-lint:disable NestingDepth
-            button::before {
-                background: $slick-dot-color-active;
+            // button::before {
+            //     background: $slick-dot-color-active;
+            // }
+            button {
+                opacity: 1;
             }
         }
     }

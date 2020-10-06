@@ -118,4 +118,29 @@ export default function () {
             $(element).addClass('compat-object-fit');
         });
     }
+
+    // Extra Slider Setting from page promo information
+    $("#header-banner .promo-message").slick({
+        // normal options...
+        infinite: false,
+        slidesToShow: 1,
+        arrows: false,
+        dots: false,
+        draggable: false,
+        // mobile responsiveness
+        responsive: [
+            {
+                breakpoint: 9999,
+                settings: "unslick"
+            },
+            {
+                breakpoint: 601,
+                settings: {
+                    slidesToShow: 1,
+                    infinite: true,
+                    draggable: true,
+                }
+            }
+        ]
+    });
 }
